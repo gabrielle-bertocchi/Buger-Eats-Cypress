@@ -12,8 +12,12 @@ describe('cadastro', () => {
       whatsapp: '11999999999',
 
       endereco: {
-        cep: '15093521',
-        numero: '200'
+        cep: '15093525',
+        rua: 'Rua Pedro Molina Canto',
+        numero: '200',
+        bairro: 'Condomínio Vilage La Montagne',
+        cidade: 'São José do Rio Preto/SP',
+        complemento: 'Apto 12'
       }
     }
 
@@ -25,6 +29,12 @@ describe('cadastro', () => {
     cy.get('.field input[placeholder="CEP"]').type(entregador.endereco.cep)
     cy.get('.field input[value="Buscar CEP"]').click()
     cy.get('.field-group input[placeholder="Número"]').type(entregador.endereco.numero)
+    cy.get('.field-group input[placeholder="Complemento"]').type(entregador.endereco.complemento)
+
+    cy.get('.field input[placeholder="Rua"]').should('have.value', entregador.endereco.rua)
+    cy.get('.field input[placeholder="Bairro"]').should('have.value', entregador.endereco.bairro)
+    cy.get('.field input[placeholder="Cidade/UF"]').should('have.value', entregador.endereco.cidade)
+
     
   });
  
