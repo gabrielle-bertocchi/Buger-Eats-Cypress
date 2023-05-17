@@ -18,7 +18,9 @@ describe('cadastro', () => {
         bairro: 'Condomínio Vilage La Montagne',
         cidade: 'São José do Rio Preto/SP',
         complemento: 'Apto 12'
-      }
+      },
+      metodo_entrega: 'Moto',
+      cnh: './IMG/CNH.jpg'
     }
 
     cy.get('.field input[placeholder="Nome completo"]').type(entregador.nome)
@@ -34,6 +36,11 @@ describe('cadastro', () => {
     cy.get('.field input[placeholder="Rua"]').should('have.value', entregador.endereco.rua)
     cy.get('.field input[placeholder="Bairro"]').should('have.value', entregador.endereco.bairro)
     cy.get('.field input[placeholder="Cidade/UF"]').should('have.value', entregador.endereco.cidade)
+
+    cy.contains('.delivery-method li', entregador.metodo_entrega).click()
+
+    cy.get('.dropzone input[type="file"]').attachFile(entregador.cnh)
+
 
     
   });
