@@ -1,0 +1,14 @@
+{
+  "name": "buger-eats-cypress",
+  "version": "1.0.0",
+  "description": "BugerEats App Acceptance Testing Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "author": "Gabrielle Bertocchi",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.12.0"
+  }
+}
